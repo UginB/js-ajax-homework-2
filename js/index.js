@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === fieldGrid) {
       fieldGrid.append(cube.cloneNode(true));
     }
-    document.removeEventListener("mousemove", mouseMoveHandler);
-    document.body.removeEventListener("mouseup", mouseUpHandler);
+    document.removeEventListener("pointermove", mouseMoveHandler);
+    document.body.removeEventListener("pointereup", mouseUpHandler);
   };
 
-  cube.addEventListener("mousedown", () => {
+  cube.addEventListener("pointerdown", () => {
     createCloneCube();
-    document.addEventListener("mousemove", mouseMoveHandler);
-    document.body.addEventListener("mouseup", mouseUpHandler);
+    document.addEventListener("pointermove", mouseMoveHandler);
+    document.body.addEventListener("pointerup", mouseUpHandler);
   });
 });
