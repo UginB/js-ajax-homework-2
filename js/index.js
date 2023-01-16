@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fieldGrid.append(cube.cloneNode(true));
     }
     document.removeEventListener("pointermove", mouseMoveHandler);
-    document.body.removeEventListener("pointereup", mouseUpHandler);
+    document.body.removeEventListener("pointerup", mouseUpHandler);
   };
 
   cube.addEventListener("pointerdown", () => {

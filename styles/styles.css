@@ -27,6 +27,7 @@
 	width: 100px;
 	background: url(./img.jpg) center center/cover no-repeat;
 	color: white;
+	touch-action: none;
 }
 
 .elemRespown__cube_abs {
