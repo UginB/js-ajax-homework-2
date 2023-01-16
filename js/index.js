@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const fieldFree = document.querySelector(".fields__field_free");
   const fieldGrid = document.querySelector(".fields__field_grid");
 
-  let mouseMoveListener;
+  let mouseMoveHandler;
   let deepCopyCube;
 
   const createCloneCube = () => {
     deepCopyCube = cube.cloneNode(true);
     deepCopyCube.classList.add("elemRespown__cube_abs");
     respown.append(deepCopyCube);
-    mouseMoveListener = (e) => {
+    mouseMoveHandler = (e) => {
       deepCopyCube.style.left = e.pageX + 1 + "px";
       deepCopyCube.style.top = e.pageY + 1 + "px";
     };
@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === fieldGrid) {
       fieldGrid.append(cube.cloneNode(true));
     }
-    document.removeEventListener("mousemove", mouseMoveListener);
+    document.removeEventListener("mousemove", mouseMoveHandler);
     document.body.removeEventListener("mouseup", mouseUpHandler);
   };
 
-  cube.addEventListener("mousedown", (e) => {
+  cube.addEventListener("mousedown", () => {
     createCloneCube();
-    document.addEventListener("mousemove", mouseMoveListener);
+    document.addEventListener("mousemove", mouseMoveHandler);
     document.body.addEventListener("mouseup", mouseUpHandler);
   });
 });
