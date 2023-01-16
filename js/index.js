@@ -12,14 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
     deepCopyCube.classList.add("elemRespown__cube_abs");
     respown.append(deepCopyCube);
     mouseMoveHandler = (e) => {
+      //   console.log(e.target);
       deepCopyCube.style.left = e.pageX + 1 + "px";
       deepCopyCube.style.top = e.pageY + 1 + "px";
     };
   };
 
   const mouseUpHandler = (e) => {
-    console.log(e.target);
-    if (e.target != fieldFree) {
+    // console.log(e.currentTarget);
+    if (e.target !== fieldFree) {
       deepCopyCube.remove();
     }
     if (e.target === fieldGrid) {
@@ -27,11 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     document.removeEventListener("pointermove", mouseMoveHandler);
     document.body.removeEventListener("pointerup", mouseUpHandler);
+    // fieldFree.removeEventListener("pointerup", mouseUpHandler);
+    // fieldGrid.removeEventListener("pointerup", mouseUpHandler);
   };
 
-  cube.addEventListener("pointerdown", () => {
+  cube.addEventListener("pointerdown", (e) => {
+    // console.log(e.target);
     createCloneCube();
     document.addEventListener("pointermove", mouseMoveHandler);
     document.body.addEventListener("pointerup", mouseUpHandler);
+    // fieldFree.addEventListener("pointerup", mouseUpHandler);
+    // fieldGrid.addEventListener("pointerup", mouseUpHandler);
   });
 });
