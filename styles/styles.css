@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	user-select: none;
 }
  
 .container {
@@ -13,9 +14,11 @@
 	display: flex;
 	justify-content: center;
 	align-items:center;
+	touch-action: none;
 }
 
 .elemRespown__cube {
+	z-index: 1;
 	cursor: pointer;
 	padding: 5px;
 	display: flex;
@@ -25,6 +28,7 @@
 	width: 100px;
 	background: url(./img.jpg) center center/cover no-repeat;
 	color: white;
+	touch-action: none;
 }
 
 .elemRespown__cube_abs {
@@ -39,12 +43,23 @@
 }
 
 .fields__field {
+	position: relative;
 	display: flex;
-	justify-content: center;
-	align-items:center;
+	justify-content: flex-start;
+	align-content: baseline;
+	flex-wrap: wrap;
 	width: 400px;
 	height: 400px;
 	border-color: blue;
 	border: 2px;
 	background-color:aqua;
+}
+
+.fields__field_grid {
+	overflow-y: scroll;
+	background-color: pink;
+}
+
+.title {
+	text-align: center;
 }
