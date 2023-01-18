@@ -12,32 +12,28 @@ document.addEventListener("DOMContentLoaded", () => {
     deepCopyCube.classList.add("elemRespown__cube_abs");
     respown.append(deepCopyCube);
     mouseMoveHandler = (e) => {
-      //   console.log(e.target);
       deepCopyCube.style.left = e.pageX + 1 + "px";
       deepCopyCube.style.top = e.pageY + 1 + "px";
     };
   };
 
   const mouseUpHandler = (e) => {
-    // console.log(e.currentTarget);
-    if (e.target !== fieldFree) {
+    const elemBelow = document.elementFromPoint(e.clientX, e.clientY);
+
+    if (!elemBelow || elemBelow.closest(".fields__field_free") !== fieldFree) {
       deepCopyCube.remove();
     }
-    if (e.target === fieldGrid) {
+    if (elemBelow && elemBelow.closest(".fields__field_grid") === fieldGrid) {
       fieldGrid.append(cube.cloneNode(true));
     }
+
     document.removeEventListener("pointermove", mouseMoveHandler);
     document.body.removeEventListener("pointerup", mouseUpHandler);
-    // fieldFree.removeEventListener("pointerup", mouseUpHandler);
-    // fieldGrid.removeEventListener("pointerup", mouseUpHandler);
   };
 
   cube.addEventListener("pointerdown", (e) => {
-    // console.log(e.target);
     createCloneCube();
     document.addEventListener("pointermove", mouseMoveHandler);
     document.body.addEventListener("pointerup", mouseUpHandler);
-    // fieldFree.addEventListener("pointerup", mouseUpHandler);
-    // fieldGrid.addEventListener("pointerup", mouseUpHandler);
   });
 });

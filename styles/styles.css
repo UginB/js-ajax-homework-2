@@ -2,14 +2,6 @@
 	box-sizing: border-box;
 	user-select: none;
 }
-
-html {
-	/* touch-action: none; */
-}
-
-body {
-	/* touch-action: none; */
-}
  
 .container {
 	margin: 0 auto 0 auto;
@@ -36,7 +28,7 @@ body {
 	width: 100px;
 	background: url(./img.jpg) center center/cover no-repeat;
 	color: white;
-	/* touch-action: none; */
+	touch-action: none;
 }
 
 .elemRespown__cube_abs {
@@ -51,10 +43,10 @@ body {
 }
 
 .fields__field {
-	touch-action: none;
 	position: relative;
 	display: flex;
 	justify-content: flex-start;
+	align-content: baseline;
 	flex-wrap: wrap;
 	width: 400px;
 	height: 400px;
